@@ -9,9 +9,16 @@ library("ReactomePA")
 BiocManager::install("biomaRt")
 library(biomaRt)
 
-
+# transfer file from desktop toproject directory
 ciri_26 <- read.delim('CIRI output/26_CIRI.txt') # 249 detected circular RNAs
+write.csv(ciri_26, file = "ciri_26.csv")
+
+# start
+ciri_26_ud <- read.csv('ciri_26.csv', header = TRUE, stringsAsFactors = FALSE, row.names = 1)
+
 ciri_26_split <-separate_rows(ciri_26, gene_id, sep = ",")   # multiple gene_ids mapped to each circRNA, split rows --> 1168
+ciri_26_ud$circRNA_ID <- gsub('\\|','-', circ_26_ud$circRNA_id)
+
 
 
 library('biomaRt')
