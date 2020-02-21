@@ -22,18 +22,13 @@ CIRI.files=c(
 designs=c(0,0,0,1,1)
 fdr.level=0.05
 
-res=circJuncDE(CIRI.files[c(1,2,3,4)],designs,circ.method='CIRI',DE.method='pois.ztest')
+res=circJuncDE(CIRI.files[c(1,2,3,4,5)],designs,circ.method='CIRI',DE.method='pois.ztest')
+new_seqlevels <- vector()
+keepSeqlevels(chr1_KI270711v1_random, new_seqlevels, pruning.mode="coarse")
+
+
 tmp=getCLR(res)
 x1=tmp$x1
 n1=tmp$n1
 x2=tmp$x2
 n2=tmp$n2
-
-res1=circCLRDE(x1,n1,x2,n2,DE.method='wald',is.shrink=F)
-sum(res1$fdr<fdr.level)
-res2=circCLRDE(x1,n1,x2,n2,DE.method='wald',is.shrink=T)
-sum(res2$fdr<fdr.level)
-res3=circCLRDE(x1,n1,x2,n2,DE.method='lr',is.shrink=F)
-sum(res3$fdr<fdr.level)
-res4=circCLRDE(x1,n1,x2,n2,DE.method='lr',is.shrink=T)
-sum(res4$fdr<fdr.level)
