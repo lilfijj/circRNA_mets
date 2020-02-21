@@ -4,6 +4,18 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 BiocManager::install("AnnotationHub")
 library(AnnotationHub)
 
-# Need to establish internet connection in R
-# Made either using Internet Protocol (IP) address =
-# a numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication
+
+install.packages("devtools")
+library(devtools)
+
+
+# https://github.com/VCCRI/Ularcirc - circRNA after BWA-MEM, CIRI2
+
+devtools::install_github("VCCRI/Ularcirc", 
+                           build = TRUE, build_vignettes = TRUE, build_opts = c("--no-resave-data", "--no-manual"))
+
+library("Ularcirc")
+
+all_dbs <- Compatible_Annotation_DBs() # This will return all compatible databases
+
+#mmu_dbs <- Compatible_Annotation_DBs(search_term = 'mm10') # returns mm10 compatible databases
