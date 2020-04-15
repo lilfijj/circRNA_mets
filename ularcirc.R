@@ -4,6 +4,7 @@ devtools::install_github("VCCRI/Ularcirc", build = TRUE, build_vignettes = TRUE,
 install.packages("yaml")
 install.packages("digest")
 library(digest)
+library(yam1)
 BiocManager::install("BiocStyle")
 
 library("Ularcirc")
