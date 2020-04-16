@@ -1,5 +1,12 @@
 #ularcirc
 
+Set sequencing parameters: in UlarCirc APP:
+- Library fragment size = 
+- Sequencing read length = 75 bp
+- Paired
+- # of backsplice junction reads recovered = 
+
+- library prep strand = opposing strand
 
 
 
